@@ -3,7 +3,9 @@ using UnityEngine.InputSystem;
 
 public class ObjectSelectController : MonoBehaviour
 {
-    [SerializeField] private GameObject attachObject;
+    [SerializeField] private GameObject attachPlaceUI;
+    [SerializeField] private GameObject temporaryAttachPlaceUI;
+    [SerializeField] private GameObject objectOnRover;
     [SerializeField] private float attachDistance = 50;
     private Vector2 _initialPosition;
 
@@ -16,16 +18,27 @@ public class ObjectSelectController : MonoBehaviour
 
     public void OnDragEnd()
     {
-        if(Vector2.Distance(transform.position, attachObject.transform.position) < attachDistance)
+        if(Vector2.Distance(transform.position, attachPlaceUI.transform.position) < attachDistance)
         {
             // Ставим объект
-            attachObject.SetActive(false);
+            attachPlaceUI.SetActive(false);
+            temporaryAttachPlaceUI.transform.parent.gameObject.SetActive(true);
             gameObject.SetActive(false);
+            temporaryAttachPlaceUI.SetActive(false);
+            objectOnRover.SetActive(true);
         }
         else
         {
             transform.localPosition = _initialPosition;
+            temporaryAttachPlaceUI.transform.parent.gameObject.SetActive(true);
+            attachPlaceUI.SetActive(false);
         }
+    }
+
+    public void OnDragStart()
+    {
+        temporaryAttachPlaceUI.transform.parent.gameObject.SetActive(false);
+        attachPlaceUI.SetActive(true);
     }
 
     public void OnDrag()
