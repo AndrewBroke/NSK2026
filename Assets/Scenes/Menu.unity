@@ -627,8 +627,8 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1400167692}
           m_TargetAssemblyTypeName: Tip, Assembly-CSharp
-          m_MethodName: SetTip
-          m_Mode: 5
+          m_MethodName: RemoveTip
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5269,8 +5269,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000015259, y: -446.652}
-  m_SizeDelta: {x: 834.8281, y: 150.69653}
+  m_AnchoredPosition: {x: -93.91725, y: -473.26187}
+  m_SizeDelta: {x: 646.9937, y: 97.4767}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1400167692
 MonoBehaviour:
@@ -5284,7 +5284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c96c9a184e8fdd4abe3b92172571642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tip
-  tipTextUI: {fileID: 1400167693}
 --- !u!114 &1400167693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5309,7 +5308,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 65
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 65
     m_Alignment: 4
