@@ -5828,6 +5828,7 @@ MonoBehaviour:
   coinManager: {fileID: 1104685201}
   levelWinCoins: 15
   levelWinCoinsText: {fileID: 1621724286}
+  playerRB: {fileID: 0}
 --- !u!65 &1604470793
 BoxCollider:
   m_ObjectHideFlags: 0
