@@ -1,8 +1,14 @@
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainButtonsManager : MonoBehaviour
 {
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     /// <summary>
     /// Выход из игры или пауза редактора
     /// </summary>

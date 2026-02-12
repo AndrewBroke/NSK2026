@@ -11,15 +11,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private float jumpStrength = 10;
     [SerializeField] private float fanActivateMultiplier = 3;
 
-    [Header("Objects")]
-    [SerializeField] private GameObject[] objectsOnRover;
-
-    [Header("UI")]
-    [SerializeField] private GameObject startButton;
-
     private Rigidbody carRb;
 
-    public bool isGameStarted;
 
     private void Start()
     {
@@ -27,15 +20,7 @@ public class CarController : MonoBehaviour
     }
     private void Update()
     {
-        if (IsRoverReady() && startButton.activeSelf == false && !isGameStarted)
-        {
-            startButton.SetActive(true);
-        }
-
-        if (isGameStarted)
-        {
-            HandleMotor();
-        }
+        HandleMotor();
     }
 
     /// <summary>
@@ -50,33 +35,25 @@ public class CarController : MonoBehaviour
     }
 
     /// <summary>
-    /// Проверка, что ровер полностью собран
+    /// Прыжок на крылья
     /// </summary>
-    /// <returns>true - собран, false - не собран</returns>
-    private bool IsRoverReady()
-    {
-        for (int i = 0; i < objectsOnRover.Length; i++)
-        {
-            if (objectsOnRover[i].activeSelf == false)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public void Jump()
     {
         print("Jump");
         carRb.AddForce(transform.up * jumpStrength, ForceMode.Impulse);
     }
 
+    /// <summary>
+    /// Активация пропеллера
+    /// </summary>
     public void ActivateSpeedUp()
     {
         motorForceMultiplier = fanActivateMultiplier;
     }
 
+    /// <summary>
+    /// Деактивация пропеллера
+    /// </summary>
     public void DeactivateSpeedUp()
     {
         motorForceMultiplier = 1;
